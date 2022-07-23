@@ -94,8 +94,9 @@ class ChessBoard(chess.Board):
             try:
                 move = self.parse_uci(''.join(self.pending_move))
                 self.push(move)
-                engine_move = get_engine_move(self)
-                self.push(engine_move)
+                # if not self.is_game_over():
+                #     engine_move = get_engine_move(self)
+                #     self.push(engine_move)
             except ValueError:
                 print('Invalid Move!')
             self.available_squares = []
@@ -123,7 +124,7 @@ class GameWindow(sg.Window):
 
         if self.board.is_game_over():
             if self.board.is_checkmate():
-                winner = 'WHITE' if self.board.outcome() == chess.WHITE else 'BLACK'
+                winner = 'WHITE' if self.board.outcome().winner else 'BLACK'
                 msg = f'CHECKMATE!!! {winner} wins!'
             elif self.board.is_stalemate():
                 msg = 'Draw by STALEMATE!'
