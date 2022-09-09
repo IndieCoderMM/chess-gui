@@ -1,4 +1,5 @@
 import random
+from turtle import bgcolor
 
 import PySimpleGUI as sg
 import chess
@@ -7,6 +8,9 @@ PIECES_IMG = {'K': 'wk.png', 'Q': 'wq.png', 'B': 'wb.png', 'R': 'wr.png', 'N': '
               'q': 'bq.png', 'b': 'bb.png', 'r': 'br.png', 'n': 'bn.png', 'p': 'bp.png'}
 BLANK = 'blank.png'
 
+sg.set_options(font="Franklin 15")
+
+
 class Tile:
     def __init__(self, f, r):
         self.rank = 7 - r
@@ -14,18 +18,21 @@ class Tile:
         self.square = chess.square(self.file, self.rank)
         self.name = chess.square_name(self.square)
         self.key = (self.file, self.rank)
-        self.bgcolor = 'light grey' if (self.square + self.rank) % 2 else 'skyblue'
+        self.bgcolor = 'light grey' if (
+            self.square + self.rank) % 2 else 'skyblue'
         self.button = self.get_button()
 
     def get_button(self):
-        btn = sg.Button(button_color=self.bgcolor, image_filename='assets/' + BLANK, image_size=(64, 64), image_subsample=4, border_width=1, pad=(0, 0), tooltip=self.name.upper(), key=self.key)
+        btn = sg.Button(button_color=self.bgcolor, image_filename='assets/' + BLANK, image_size=(64, 64),
+                        image_subsample=4, border_width=1, pad=(0, 0), tooltip=self.name.upper(), key=self.key)
         return btn
 
     def set_image(self, img_path):
         self.button.ImageFilename = 'assets/' + img_path
 
     def update_image(self, img_path):
-        self.button.update(image_filename='assets/' + img_path, image_size=(64, 64), image_subsample=4)
+        self.button.update(image_filename='assets/' + img_path,
+                           image_size=(64, 64), image_subsample=4)
 
     def change_bg_color(self, color):
         self.button.update(button_color=color)
@@ -34,7 +41,8 @@ class Tile:
 class ChessBoard(chess.Board):
     def __init__(self):
         super().__init__(chess960=False)
-        self.table = [[Tile(file, rank) for file in range(8)] for rank in range(8)]
+        self.table = [[Tile(file, rank) for file in range(8)]
+                      for rank in range(8)]
         self.pending_move = []
         self.available_squares = []
         self.squares_in_danger = []
@@ -49,7 +57,8 @@ class ChessBoard(chess.Board):
                     tile.set_image(PIECES_IMG[str(self.piece_at(tile.square))])
                 layout_row.append(tile.button)
             board_layout.append(layout_row)
-        file_names = [sg.Text(chess.FILE_NAMES[i].upper(), expand_x=True, justification='center') for i in range(8)]
+        file_names = [sg.Text(chess.FILE_NAMES[i].upper(
+        ), expand_x=True, justification='center') for i in range(8)]
         board_layout.append(file_names)
         return board_layout
 
@@ -74,6 +83,8 @@ class ChessBoard(chess.Board):
                 bg_color = 'orange'
             else:
                 bg_color = 'lime'
+        elif tile.name + 'q' in self.available_squares:
+            bg_color = 'purple'
         else:
             bg_color = tile.bgcolor
         if self.is_check() and tile.square == self.king(self.turn):
@@ -98,7 +109,24 @@ class ChessBoard(chess.Board):
                 #     engine_move = get_engine_move(self)
                 #     self.push(engine_move)
             except ValueError:
-                print('Invalid Move!')
+                try:
+                    self.pending_move.append('q')
+                    if self.parse_uci(''.join(self.pending_move)) in self.legal_moves:
+                        promote_to = sg.Window("Choose Your Promotion", [[sg.Button('Queen'), sg.Button(
+                            'Rook'), sg.Button('Bishop'), sg.Button('Knight')]]).read(close=True)[0]
+                        if promote_to == 'Queen':
+                            promote = 'q'
+                        elif promote_to == 'Rook':
+                            promote = 'r'
+                        elif promote_to == 'Bishop':
+                            promote = 'b'
+                        elif promote_to == 'Knight':
+                            promote = 'n'
+                        self.pending_move[-1] = promote
+                        move = self.parse_uci(''.join(self.pending_move))
+                        self.push(move)
+                except ValueError:
+                    sg.PopupQuickMessage('Invalid Move!')
             self.available_squares = []
             self.pending_move = []
 
@@ -107,6 +135,7 @@ def get_engine_move(board):
     rand_move = random.choice(list(board.legal_moves))
     return rand_move
 
+
 class GameWindow(sg.Window):
     def __init__(self, title):
         self.board = ChessBoard()
@@ -114,9 +143,10 @@ class GameWindow(sg.Window):
         super().__init__(title, self.get_layout())
 
     def get_layout(self):
-        layout = [[sg.Text('Chess ', auto_size_text=True, key='-STATUS-', font='Default 20')]]
+        layout = [[sg.Text('Chess ', auto_size_text=True,
+                           key='-STATUS-', font='Default 20')]]
         layout += self.board.get_layout()
-        layout += [[sg.Button('Restart', size=(10, 2), key='-RESTART-')]]
+        layout += [[sg.Button('Restart', size=(8, 1), key='-RESTART-')]]
         return layout
 
     def update_status(self):
@@ -142,6 +172,7 @@ class GameWindow(sg.Window):
                 if tile.key == event:
                     self.board.handle_move(tile)
         self.board.update_display()
+
 
 def main():
     sg.theme('Python')
