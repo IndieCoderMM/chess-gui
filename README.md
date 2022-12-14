@@ -1,8 +1,13 @@
-# Chess GUI
+# ♟ Simple Chess GUI
 
 A simple, user-friendly chess graphical user interface (GUI) built using [PySimpleGUI](https://www.pysimplegui.org/en/latest/).
 
-## Features
+<p align="left">
+<img src="screenshots/chess_gui_demo.gif" width="500">&nbsp;&nbsp;
+<img src="screenshots/chess_gui_demo.gif" width="500">
+</p>
+
+## 🎨 Features
 
 - Play against a friend
 - User-friendly, intuitive interface
@@ -12,20 +17,13 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 <!-- - Choose from three difficulty levels for computer opponent -->
 <!-- - Automatic save and load functionality -->
 
-## Screenshots
-
-<p align="left">
-<img src="screenshots/chess_gui_demo.gif" width="500">&nbsp;&nbsp;
-<img src="screenshots/chess_gui_demo.gif" width="500">
-</p>
-
-## Tools
+## ⚙ Tools
 
 - [Python Chess](https://python-chess.readthedocs.io/en/latest/): Move generations and validations are made using this powerful chess library
 - [PySimpleGUI](https://www.pysimplegui.org/en/latest/): Beautiful GUI is created within a few lines of code by the help of this amazing library 
 
 
-## Requirements
+## 🐍 Requirements
 
 - Python 3.9 or higher
 
@@ -35,9 +33,9 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 - Unzip the downloaded file.
 - Navigate to the unzipped directory and double-click on chess-gui.jar to launch the application. -->
 
-## Gameplay
+## 💡 Gameplay
 
-- To start a new game, click on the New Game button.
+- To start a new game, click on the **New Game** button.
 - To make a move, click on the piece you want to move 
 - Board will automatically highlight all the legal moves for the selected piece
 - Click on the highlighted square and the move will be made
@@ -51,10 +49,20 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 - The game board will appear and gameplay will begin. -->
 <!-- - To save the current game, click on the Save button in the top toolbar. The game will be saved and can be loaded at a later time by clicking on the Load button. -->
 
-## Contributions
+## 🤩 Starcatcher
+
+If you like this project, you can support me by giving a ⭐.
+
+## 👨‍🚀 Contact
+
+- GitHub: [@IndieCoderMM](https://github.com/indiecodermm/)
+- Email: hthant00chk@gmail.com
+- LinkedIn: [@hthantoo](https://linkedin.com/in/hthantoo/)
+
+## 🏗 Contributions
 
 Contributions are welcome! If you have any ideas for new features or improvements, please open an issue or submit a pull request.
 
-## License
+## 📜 License
 
 This project is licensed under the [MIT](MIT.md) License.
