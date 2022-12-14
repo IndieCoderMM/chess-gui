@@ -3,8 +3,8 @@
 A simple, user-friendly chess graphical user interface (GUI) built using [PySimpleGUI](https://www.pysimplegui.org/en/latest/).
 
 <p align="left">
-<img src="screenshots/chess_gui_demo.gif" width="600">&nbsp;&nbsp;
-<img src="screenshots/chess_gui_demo.gif" width="600">
+<img src="screenshots/chess_gui_demo.gif" width="250">&nbsp;&nbsp;
+<img src="screenshots/chess_gui_demo.gif" width="250">
 </p>
 
 ## 🎨 Features
