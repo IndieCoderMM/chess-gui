@@ -11,7 +11,7 @@ class ChessGUI(sg.Window):
         layout = [[sg.Text('Chess ', auto_size_text=True,
                            key='-STATUS-', font='Default 20')]]
         layout += self.board.get_layout()
-        layout += [[sg.Button('Restart', size=(8, 1), key='-RESTART-')]]
+        layout += [[sg.Button('New Game', size=(8, 1), key='-RESTART-')]]
         return layout
 
     def update_status(self):
