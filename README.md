@@ -4,7 +4,7 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 
 <p align="left">
 <img src="screenshots/chess_gui_demo.gif" width="250">&nbsp;&nbsp;
-<img src="screenshots/chess_gui_demo.gif" width="250">
+<img src="screenshots/chess_gui_demo1.gif" width="250">
 </p>
 
 ## 🎨 Features
