@@ -5,14 +5,19 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 ## Features
 
 - Play against a friend
-<!-- - Choose from three difficulty levels for computer opponent -->
 - User-friendly, intuitive interface
 - Legal moves highlighter
 - All chess moves are available:
-	- Castling
-	- Pawn Promotion
-	- En passant
+	- Castling | Pawn Promotion | En passant
+<!-- - Choose from three difficulty levels for computer opponent -->
 <!-- - Automatic save and load functionality -->
+
+## Screenshots
+
+<p align="left">
+<img src="screenshots/chess_gui_demo.gif" width="500">&nbsp;&nbsp;
+<img src="screenshots/chess_gui_demo.gif" width="500">
+</p>
 
 ## Tools
 
@@ -33,9 +38,6 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 ## Gameplay
 
 - To start a new game, click on the New Game button.
-<!-- - Select whether you want to play against a friend or against the computer.
-- If playing against the computer, select the desired difficulty level.
-- The game board will appear and gameplay will begin. -->
 - To make a move, click on the piece you want to move 
 - Board will automatically highlight all the legal moves for the selected piece
 - Click on the highlighted square and the move will be made
@@ -44,6 +46,9 @@ A simple, user-friendly chess graphical user interface (GUI) built using [PySimp
 	1. Checkmate
 	2. Stalemate
 	3. Insufficient materials
+<!-- - Select whether you want to play against a friend or against the computer.
+- If playing against the computer, select the desired difficulty level.
+- The game board will appear and gameplay will begin. -->
 <!-- - To save the current game, click on the Save button in the top toolbar. The game will be saved and can be loaded at a later time by clicking on the Load button. -->
 
 ## Contributions
