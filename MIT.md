@@ -1,4 +1,4 @@
-Copyright (c) 2022 Hein Thant ([@IndiCoderMM](https://github.com/indiecodermm))
+Copyright (c) Hein Thant
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
