@@ -1,3 +1,6 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/indiecodermm/chess-gui/badge)](https://www.codefactor.io/repository/github/indiecodermm/chess-gui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # ♟ Simple Chess GUI
 
 A simple, user-friendly chess graphical user interface (GUI) built using [PySimpleGUI](https://www.pysimplegui.org/en/latest/).
